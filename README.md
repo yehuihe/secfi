@@ -1,6 +1,8 @@
 # secfi
 Secfi auth assignment 
 
+Disclaimer: I realize that in API design. Use user id as identifiers in routes isn't a good choice as user don't remember their id.
+But due to time constrain this is a easy way out. In production I'll switch to username
 
 
 1. Set environment variables
