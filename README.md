@@ -33,10 +33,50 @@ User.query.all()
 exit()
 
 
-API Routes in 
+API Routes in:
+
 app/api/users.py
 app/api/authentication.py
+
+To use API service:
+
+flask run
+
+Routes:
+
+Get tokens:
+http://127.0.0.1:5000/api/v1/tokens/             GET
+
+Get users info (only admin or current user):
+http://127.0.0.1:5000/api/v1/users/<int:id>      GET
+
+Create new users (only admin):
+http://127.0.0.1:5000/api/v1/users/              POST
+
+Edit user self (only admin or current user):
+http://127.0.0.1:5000/api/v1/users/<int:id>      PUT
+Required: username, password
+Optional: first_name, last_name
+
+Self-removal (only current user):
+http://127.0.0.1:5000/api/v1/users/              DELETE
+
+Guide: 
+Current api can't design roles. admin can only be added to database in flask shell. All other create new users by admin in API are only to add User.
+After adding admin in database. Create a few new users. For example in HTTPie:
+
+http --json --auth admin:admin POST http://127.0.0.1:5000/api/v1/users/ username=johndoe password=cat first_name=John last_name=Doe
+
+Get user
+http --json --auth admin:admin GET http://127.0.0.1:5000/api/v1/users/1 
+
+There is no inspect all user id currently. so you can view user id in flask shell:
+
+flask shell
+User.query.all()
 
 Open Web app please run:
 
 flask run
+
+
