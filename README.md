@@ -77,6 +77,14 @@ http --json --auth admin:admin POST http://127.0.0.1:5000/api/v1/users/ username
 Get user
 http --json --auth admin:admin GET http://127.0.0.1:5000/api/v1/users/1 
 
+or current user john 2
+
+http --json --auth john:cat GET http://127.0.0.1:5000/api/v1/users/2
+
+To use token access. generate tokens via GET tokens. Copy token then replace username with token and leave password empty. For example:
+
+http --json --auth <token>: GET http://127.0.0.1:5000/api/v1/users/1 
+
 **Get user has password_hash. Which is just for the assignment. Not for real scenario**
 
 There is no inspect all user id currently. so you can view user id in flask shell:
